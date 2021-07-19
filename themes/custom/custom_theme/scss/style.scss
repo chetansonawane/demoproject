@@ -1,0 +1,19 @@
+@import 'color.scss';
+
+html{
+    body{background: $primary; transition: 0.5s;
+        p{
+            color:$font-color;  
+         }    
+    }     
+}      
+h1{color:red; display: inline-block;}         
+.paragraph--type--image-style{
+    img{margin: 40px 0; }
+}
+.layout-container{
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 20px;
+    margin: 0 auto;
+}

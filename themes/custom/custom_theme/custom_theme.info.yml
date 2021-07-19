@@ -1,0 +1,14 @@
+name: custom_theme
+type: theme
+description: 'This is custom theme.'
+core: 8.x
+package: other
+
+regions:
+  header: Header
+  content: Content
+  footer: 'Footer'
+  hidden: 'Hidden'
+
+libraries:
+  - custom_theme/global-styling

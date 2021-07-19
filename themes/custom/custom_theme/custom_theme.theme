@@ -1,0 +1,57 @@
+<?php
+
+function custom_theme_theme_suggestions_alter(array &$suggestions, array $variables, $hook) {
+  //var_dump($hook);
+  if ($hook == 'node') {
+    $suggestions[] = 'node__customthemes';
+    
+  }
+}
+
+function custom_theme_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  $suggestions[] = 'block__customthemesblock';
+}
+
+function custom_theme_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id = NULL) {
+  
+  if (isset($form_id)) {
+    return;
+  }
+
+  $form['use_custom_textfeild'] = array(
+    '#type'          => 'textfield',
+    '#title'         => t('Custom Widget field'),
+    '#default_value' => theme_get_setting('use_custom_textfeild'),
+    '#description'   => t("Place this text in the widget spot on your site."),
+  );
+}
+
+
+function custom_theme_preprocess_node(&$variables) {
+  $variables['use_custom_textfeild'] = theme_get_setting('use_custom_textfeild');
+}
+function custom_theme_preprocess_paragraph(&$variables) {
+ 
+  $element = $variables['elements'];
+  $para = $variables['paragraph'];
+  
+  // if ($variables['paragraph']->hasField('field_signpost_image')) {
+  //   $image_style = $variables['paragraph']->field_signpost_image->value;
+  //   $variables['test'] = $image_style;
+  // }
+
+  // if ($element['#paragraph']->gettype() == 'image_style') {
+
+  //   $referencedEntities = $para->get('field_signpost_image')->referencedEntities();
+  //   foreach ($referencedEntities as $key => $value) {
+  //     // dsm($value->get('image'));
+  //     $image_uri = $value->__get('image')->referencedEntities()[0]->getFileUri();
+    
+  //     $style = \Drupal::entityTypeManager()->getStorage('image-styles')->load('banner_image');
+  //     $variables['desktop_url'] = $style->buildUrl($image_uri);
+      
+  //      
+  //   }
+  // }
+}
+

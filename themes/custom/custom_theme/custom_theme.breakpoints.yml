@@ -1,0 +1,15 @@
+custom_theme.mobile:
+  label: mobile
+  mediaQuery: 'all and (max-width: 767px)'
+  weight: 2
+  multipliers:
+    - 1x
+    - 2x
+
+custom_theme.desktop:
+  label: desktop
+  mediaQuery: 'all and (min-width: 1367px)'
+  weight: 1
+  multipliers:
+    - 1x
+    - 2x
